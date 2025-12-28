@@ -2,16 +2,13 @@ import logging
 from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes
 
-# Вставьте ваш токен
-TOKEN = "ВАШ_ТОКЕН_ЗДЕСЬ"
+TOKEN = ''
 
-# Настройка логирования
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.INFO
 )
 
-# Сообщения для каждой команды
 MESSAGES = {
     'start': '👋 Добро пожаловать! Я бот с 15 командами. Используйте /help чтобы увидеть все команды.',
     'help': '📚 Доступные команды:\n\n'
@@ -46,7 +43,6 @@ MESSAGES = {
     'donate': '❤️ Поддержать проект:\n\nКошелёк для донатов: 4100xxxxxx'
 }
 
-# Функции-обработчики команд
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(MESSAGES['start'])
 
@@ -93,10 +89,8 @@ async def donate(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(MESSAGES['donate'])
 
 def main():
-    # Создаем приложение
     application = Application.builder().token(TOKEN).build()
     
-    # Регистрируем обработчики команд
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("help", help_command))
     application.add_handler(CommandHandler("info", info))
@@ -113,7 +107,6 @@ def main():
     application.add_handler(CommandHandler("feedback", feedback))
     application.add_handler(CommandHandler("donate", donate))
     
-    # Запускаем бота
     print("Бот запущен...")
     application.run_polling(allowed_updates=Update.ALL_TYPES)
 
