@@ -42,6 +42,45 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(MESSAGES['help'])
+    
+async def info(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(MESSAGES['info'])
+
+async def rules(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(MESSAGES['rules'])
+
+async def contact(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(MESSAGES['contact'])
+
+async def price(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(MESSAGES['price'])
+
+async def schedule(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(MESSAGES['schedule'])
+
+async def faq(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(MESSAGES['faq'])
+
+async def support(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(MESSAGES['support'])
+
+async def news(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(MESSAGES['news'])
+
+async def tips(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(MESSAGES['tips'])
+
+async def links(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(MESSAGES['links'])
+
+async def status(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(MESSAGES['status'])
+
+async def feedback(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(MESSAGES['feedback'])
+
+async def donate(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(MESSAGES['donate'])
 
 def main():
     application = Application.builder().token(TOKEN).build()
