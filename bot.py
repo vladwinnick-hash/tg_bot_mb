@@ -9,86 +9,119 @@ logging.basicConfig(
     level=logging.INFO
 )
 
-MESSAGES = {
-    'start': 'Привет, любимая!\nЭто мои извинения...\nЯ отвратительно поступал и вел себя с тобой\nТы заслуживаешь всех звезд с неба'
-    '\nВ мире нет таких слов, что бы я мог извиниться, но они мне и не нужны\nЯ хочу снова заслужить, завоевать твою любовь'
-    '\nЭтот сюрприз я длжен был сделать еще давно, как и многое другое...\nТак же, как я начал делать его, так же я исправлю все свои ошибки'
-    '\nНо для начала ознакомься с правилами /rules',
+MESSAGES = {'start': 'Привет, любимая!\nЭто мои извинения...\nЯ отвратительно поступал и вел себя с тобой\nТы заслуживаешь всех звезд с неба'
+            '\nВ мире нет таких слов, что бы я мог извиниться\nЯ хочу снова заслужить, завоевать твою любовь'
+            '\nЭтот сюрприз я длжен был сделать еще давно, как и многое другое...\nТак же, как я сделал его, так же я исправлю все свои ошибки'
+            '\nНо для начала расскажу, что может и для чего нужен бот /rules\n\n/help',
     'help': 'Основные команды и помощь:\n\n'
             '/start - Начало работы\n'
             '/help - Помощь\n'
             '/rules - Правила использования\n'
-            '/surprises - Тут список сюрпризов)\nНапоминаю, один в месяц, в остальные не подглядывай',
-    'surprises': 'Здесь я хочу исправить все свои ошибки, которые привели к краху\n\n'
-            '/lips'
-            '/feet'
-            '/strawberrry'
-            '/pearl'
-            '/dishwasher',
-            
+            '/idiot - Осознания',
+    'rules': 'По сути, это выпендрежные извинения.\nЯ знаю, что сильно ранил тебя и ты не всегда будешь готова меня выслушать.'
+             '\nТак вот бот нужен для того, что бы я мог в любую минуту, нужными для тебя дозами рассказать о том, как ты для меня дорога и важна'
+             '\nДальше я представлю всего себя несколькими блоками. Ты сможешь узнать все, что я осознавал и как это происходило в тексте,'
+             'если все еще не захочешь меня слышать и видеть\nБлоки представлены здесь /idiot',
+    'idiot': 'Да, я идиот...\n\n'
+             '/pain - Боль, слезы, ненависть'
+             '/rush - Я все могу'
+             '/awareness - Я всегда мог'
+             '/determination - Я докажу',
+    'pain': 'Сейчас этот этап кажется полным сумасшествием.\nКто в здравом уме будет отказываться от самого близкого'
+            'и дорогого человека на землене из-за того, что что-то не получается, при этом не попробовав все возможные во '
+            'вселенной методы. Лирика.\nЯ сломался как маленький мальчик. И точно так же, как маленький мальчик, плевать '
+            'я хотел на чувства самого близкого человека\nЯ потерялся и не смог взять ответственность даже за себя, не '
+            'говоря уже о семье. И, сука, самое гениальное, что мне пришло в голову - разрушить семью нахрен...\n'
+            'Я поддался слабости, нашел способ избежать ответственности...нашел виновного в своей несостоятельности.\n'
+            'Продолжим? /next',
+    'next': 'Мне было искренне больно. Я не хотел это заканчивать, но еще больше не хотел продолжать\nТогда я терял '
+            'только боль, страх, и недовольство, еще не понимая, что недовольство исходит от меня самого.\n'
+            'При всех вводных, мне все равно было очень тяжело принять факт того, что мы станем чужими.'
+            'я не понимал, чем я буду без тебя. Вся моя жизнь, как мне казалось, крутилась вокруг тебя и '
+            'только для тебя...боже, смешно)...Я не понимал, зачем мне чем-то заниматься, к чему-то стремиться, '
+            'для чего вообще шевелиться. На какое-то время с головой ушел в игры и плыл по течению...'
+            'я натурально стал дерьмом.\nПри таких вводных, я действительно не желал бы тебе строить '
+            'отношения с тем существом\n\n/idiot',
+    'rush': 'Вскоре, я снял конуру, достаточную для жизни, стал тренироваться, собирать велосипед и просто '
+             'наслаждаться жизнью. Как раз период прощального воскресенья, когда я написал тебе важные для меня '
+             'слова и получил в ответ еще более важные.\nМне было приятно осознавать, что ты планируешь новое путешествие, '
+             'хотя, стало обидно, что самые крутые поездки у тебя происходят в моменты наших разрывов и кризисов, '
+             'как и мои тренировки)) Не суть\nЯ перестал играть вообще. Меня потеряли пацаны, а мне просто не кайф, '
+             'хоть и хотелось именно пообщаться с ребятами. Я собирал вел по запчастям на базе ХВЗ (советские велики)'
+             'с огромным удовольствием, ты понимаешь). Тренировался и просто излучал жизнь\nДолгими мучениями и упорством собрал лясик, '
+             'набрал несколько кг, поставил на конвеер питание (6 РАЗ В ДЕНЬ)...я почувствовал себя человеком-павуком\n'
+             'А потом ты написала и вернула меня в реальность...огромная благодарность\n\n/idiot',
+    'awareness': 'Ты меня поддерживала всегда и во всем: хочу ли я стать комнатным гонщиком, компьютерным стримером '
+             'или человеком-павуком. Ниодного запрета на развитие, о чем я, ты мне деградировать не сильно '
+             'настойчиво запрещала. Я искал всегда виновника своих неудач, сложностей, ошибок и невезения. '
+             'Всегда ктото был не такой - начальство, окружение, время и место и вообще все..., но только '
+             'не я. Я же самый... и в этом правда, которую ты всегда так бережно и старательно пыталась до меня донести, '
+             'но это осознание мешало бы моим страданиям и оправданиям. Как метко ты метнула в меня истину, я поражаюсь, '
+             'в самое сердце. Я просто не смог и не захотел отпираться, ты права\n\nНе знаю, насколько в один период '
+             'нам попались похожие видео по смыслу, но я понял и принял свою ответственность. Это тяжко, но '
+             'необходимо. Я хочу, что бы ты тоже ее приняла, ведь, как ты мне никогда не запрещала быть собой, '
+             'так и я не держал тебя на цепи от путешествий. Хотя, признаться, я своими эмоциями и недовольством '
+             'не только от путешествий мог отвадить, там и улыбаться не захочется...но ты достойна реализации своих '
+             'желаний, а я достоин того, что бы быть частью твоего счастья /determination',
+    'determination': 'Я положу на это жизнь, но не отпущу тебя больше ни на миг. Я принес столько боли, так позволь '
+             'мне загладить это океаном любви. Я был полным идиотом, раз решил, что могу так отказаться от тебя, '
+             'но теперь я ХОЧУ для тебя. Мое удовольствие и счастье в твоей улыбке. Я хочу заставлять тебя '
+             'плакать тоько от положительных эмоций, удивления и счастья. ХОЧУ, что бы ты ни дня не проводила без цветов '
+             'и комплиментов.\n\nТы самый удивительный человек в моей жизни и я не поверю, что Бог позволит '
+             'мне потерять тебя спустя столько уроков, столько лет в горе и в радости. Пройдя огонь, воду и '
+             'медные трубы, оставив пепелище, на котором мы должны построить чтото грандиозное, невообразимо '
+             'прекрасное и фантастическое, я не поверю, что все зря, что все ради опыта, что пожинать '
+             'плоды нашего общего труда и стараний будут другие люди.\n\nТебе придется сделать пластику, сменить '
+             'все данные, переехать на другую галактику и отказаться от любой коммуникации с миром, что бы '
+             'я оставил тебя, либо убить меня...нет, только один вариант, убить меня\nТы лучшее, что было '
+             'и я бы ни за что не отказался от этого опыта. Я бы хотел сделать больше для твоего счастья, '
+             'но не отказался бы. Больше ни за что. Я верю, что ты еще любишь меня, что ты еще помнишь '
+             'меня, что в глубине души и сердца у тебя осталось место для меня... Я заслужу твою любовь '
+             'и доверие\n\nЯ могу жить без тебя и могу это делать счастливо, однако, всегда выберу жить '
+             'с тобой... я всегда выберу тебя, отныне и до конца моих дней\n\nБоже, реву как девченка'
+    }
     
-    'rules': '📖 Правила использования:\n\n',
-    'lips': 'Пора подкачать губки!\n10 минетов в любое время дня и ночи)',
-    'feet': 'Сделаю все, что бы ты могла ходить на работу)\n10 сеансов массажа ног для самой любимой)',
-    'strawberrry': 'Я покажу, что такое настоящая клубника в шоколаде',
-    'pearl': 'Отправлюсь на поиски самой прелестной жемчужины\n10 куни в любое время дня и ночи)',
-    'dishwasher': 'Я тебя очень люблю, поэтому готов помыть за тебя посуду...\nВсю неделю...',
-    'queen': 'Пусть мы и разные, но весь месяц меня это не волнует\nСлушаюсь и повинуюсь',
-    'bouquet': 'Это будет интересно)\nТебе понравится)',
-}
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(MESSAGES['start'])
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(MESSAGES['help'])
-    
-async def info(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(MESSAGES['info'])
 
 async def rules(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(MESSAGES['rules'])
 
-async def contact(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(MESSAGES['contact'])
+async def idiot(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(MESSAGES['idiot'])
 
-async def price(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(MESSAGES['price'])
+async def pain(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(MESSAGES['pain'])
 
-async def schedule(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(MESSAGES['schedule'])
+async def next(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(MESSAGES['next'])
 
-async def faq(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(MESSAGES['faq'])
+async def rush(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(MESSAGES['rush'])
 
-async def support(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(MESSAGES['support'])
+async def awareness(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(MESSAGES['awareness'])
 
-async def news(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(MESSAGES['news'])
+async def determination(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(MESSAGES['determination'])
 
-async def tips(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(MESSAGES['tips'])
-
-async def links(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(MESSAGES['links'])
-
-async def status(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(MESSAGES['status'])
-
-async def feedback(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(MESSAGES['feedback'])
-
-async def donate(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(MESSAGES['donate'])
 
 def main():
     application = Application.builder().token(TOKEN).build()
     
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("help", help_command))
-    application.add_handler(CommandHandler("info", info))
+    application.add_handler(CommandHandler("pain", pain))
     application.add_handler(CommandHandler("rules", rules))
+    application.add_handler(CommandHandler("next", next))
+    application.add_handler(CommandHandler("idiot", idiot))
+    application.add_handler(CommandHandler("rush", rush))
+    application.add_handler(CommandHandler("awareness", awareness))
+    application.add_handler(CommandHandler("determination", determination))
     
     print("Бот запущен...")
     application.run_polling(allowed_updates=Update.ALL_TYPES)
